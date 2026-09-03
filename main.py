@@ -11,7 +11,7 @@ app = FastAPI()
 # CORS: pozwól tylko Twojemu rozszerzeniu
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["chrome-extension://twoje-id-rozszerzenia"],
+    allow_origins=["chrome-extension://gplcddjfibdnhnijnpolicgldffbponm"],
     allow_methods=["POST", "OPTIONS"],
     allow_headers=["Content-Type"],
 )
@@ -57,7 +57,7 @@ async def parse_products(payload: ParseRequest):
 
     try:
         model = ChatOpenAI(
-            model="vertex_ai/gemini-2.5-flash",
+            model="openai/gpt-4o-mini",
             api_key=API_KEY,
             temperature=0,
             base_url="https://llmproxy.ai.orange",

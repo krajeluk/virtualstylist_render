@@ -61,7 +61,7 @@ async def parse_products(payload: ParseRequest):
             model="openai/gpt-4o-mini",
             api_key=API_KEY,
             temperature=0,
-            base_url="https://llmproxy.ai.orange",
+            openai_api_base="https://llmproxy.ai.orange",
         )
         print("try to call llm")
         structured_model = model.with_structured_output(ProductList)

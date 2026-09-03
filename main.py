@@ -67,6 +67,7 @@ async def parse_products(payload: ParseRequest):
         structured_model = model.with_structured_output(ProductList)
 
         prompt = f"{SYSTEM_PROMPT}\n\nOto treść strony:\n{clean_text}"
+        print(prompt)
         result: ProductList = await structured_model.ainvoke(prompt)
         print(result)
 

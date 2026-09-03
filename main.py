@@ -68,10 +68,13 @@ async def parse_products(payload: ParseRequest):
 
         prompt = f"{SYSTEM_PROMPT}\n\nOto treść strony:\n{clean_text}"
         result: ProductList = await structured_model.ainvoke(prompt)
+        print(result)
 
         return ParseResponse(success=True, products=result.products)
 
     except Exception as e:
+        print("exception")
+        print(str(e))
         return ParseResponse(success=False, error=str(e))
 
 

@@ -53,6 +53,7 @@ async def parse_products(payload: ParseRequest):
     if not payload.html:
         raise HTTPException(status_code=400, detail="Brak pola 'html'")
 
+    print(payload.html)
     clean_text = " ".join(payload.html.split())[:500000]
 
     try:
@@ -62,7 +63,7 @@ async def parse_products(payload: ParseRequest):
             temperature=0,
             base_url="https://llmproxy.ai.orange",
         )
-
+        print("try to call llm")
         structured_model = model.with_structured_output(ProductList)
 
         prompt = f"{SYSTEM_PROMPT}\n\nOto treść strony:\n{clean_text}"
